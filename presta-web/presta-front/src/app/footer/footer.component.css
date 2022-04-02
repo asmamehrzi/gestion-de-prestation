@@ -1,0 +1,17 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+p
+{
+    background-color: indigo;
+    padding: 20px;
+    margin: 0;
+    height: 80px;
+}
+p
+{
+    color: blanchedalmond;
+    font-size: 20px;
+    font-weight: bold;
+}

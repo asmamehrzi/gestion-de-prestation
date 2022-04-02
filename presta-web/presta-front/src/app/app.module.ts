@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     SupportComponent,
     ContactComponent,
     SignUpComponent,
+    FooterComponent,
+    HomeComponent,
 
   ],
   imports: [
