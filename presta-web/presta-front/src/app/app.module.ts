@@ -14,16 +14,22 @@ import { SupportComponent } from './support/support.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
+
     AppComponent,
     LandPageComponent,
     NavBarComponent,
     AboutComponent,
     SupportComponent,
     ContactComponent,
-    SignUpComponent
+    SignUpComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -32,8 +38,13 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatTableModule,
+    MatCardModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
