@@ -6,13 +6,19 @@ import { ContactComponent } from './contact/contact.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SupportComponent } from './support/support.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 
 const routes:Routes = [
   {path: '',component: HomeComponent},
   {path: 'about',component: AboutComponent},
   {path: 'support',component: SupportComponent},
   {path: 'contact',component: ContactComponent},
-  {path: 'sign',component: SignUpComponent}
+  {path: 'sign',component: SignUpComponent},
+  {path: 'register',component: RegisterComponent},
+  {path: 'dashboard',component: DashboardUserComponent}
+
+
 
 ];
 

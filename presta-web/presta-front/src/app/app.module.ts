@@ -23,7 +23,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SignUpComponent,
     FooterComponent,
     HomeComponent,
+    RegisterComponent,
+    DashboardUserComponent,
 
   ],
   imports: [
@@ -54,7 +58,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    
   ],
   
   providers: [],
