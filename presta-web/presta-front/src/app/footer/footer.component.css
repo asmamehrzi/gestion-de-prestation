@@ -4,10 +4,13 @@
 
 p
 {
-    background-color: indigo;
+    background-color: blue;
     padding: 20px;
     margin: 0;
     height: 40px;
+    width:100%;
+    color: white;
+
 }
 p
 {
