@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatInputModule} from '@angular/material/input';
-
 import { AppComponent } from './app.component';
 import { LandPageComponent } from './land-page/land-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +25,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './header/header.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -42,6 +47,10 @@ import { DashboardUserComponent } from './dashboard-user/dashboard-user.componen
     HomeComponent,
     RegisterComponent,
     DashboardUserComponent,
+    SidenavComponent,
+    HeaderComponent,
+
+
 
   ],
   imports: [
@@ -60,6 +69,10 @@ import { DashboardUserComponent } from './dashboard-user/dashboard-user.componen
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
+    MatDividerModule,
+    MatListModule,
+    MatSidenavModule,
+    MatMenuModule
     
   ],
   

@@ -8,6 +8,8 @@ import { SupportComponent } from './support/support.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes:Routes = [
   {path: '',component: HomeComponent},
@@ -16,7 +18,11 @@ const routes:Routes = [
   {path: 'contact',component: ContactComponent},
   {path: 'sign',component: SignUpComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'dashboard',component: DashboardUserComponent}
+  {path: 'dashboard',component: DashboardUserComponent},
+  {path: 'profile',component: ProfileComponent},
+  {path: 'dashbord',component: DashboardComponent}
+
+
 
 
 
