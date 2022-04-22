@@ -4,17 +4,16 @@
 
 p
 {
-    background-color: blue;
+    background-color: #dee2e6;
     padding: 20px;
     margin: 0;
-    height: 40px;
+    height: 60px;
     width:100%;
     color: white;
 
 }
 p
 {
-    color: blanchedalmond;
+    color: rgb(26, 25, 25);
     font-size: 20px;
-    font-weight: bold;
 }

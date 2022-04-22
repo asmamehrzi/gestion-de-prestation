@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { UserServiceService } from '../user-service.service';
 
 
@@ -10,14 +11,43 @@ import { UserServiceService } from '../user-service.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit{
+  user!: any;
+  isLogin!: boolean; // false
   loginForm: FormGroup=this.formBuilder.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
   })
-  constructor(private formBuilder: FormBuilder,private http:HttpClient,private userService: UserServiceService,private router:Router) { }
+  constructor(private formBuilder: FormBuilder,private http:HttpClient,private userService: UserServiceService,private router:Router,private authService: SocialAuthService) { }
+  ngOnInit(): void {
+    this.authService.authState.subscribe(
+      data => {
+        this.isLogin = (data != null);
+        this.user=data;
+
+      }
+    );  }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      data => {
+        this.user=data;
+        this.router.navigate(['dashboard'])          }
+        );
+      }
+      signInWithFB(): void {
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+          data=>{
+            this.user=data;
+            this.router.navigate(['dashboard'])          }
+        );
+      }
+    
 
   
+  signOut(): void {
+    this.authService.signOut();
+  }
   
    login(){
       this.userService.getUsersList()
