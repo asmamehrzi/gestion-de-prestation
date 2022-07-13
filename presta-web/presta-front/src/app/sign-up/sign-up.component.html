@@ -1,0 +1,27 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+<mat-toolbar color="primary">Login</mat-toolbar>
+<form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm" class="login-form">
+            <mat-form-field >
+              <input matInput placeholder="username" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field >
+              <input matInput placeholder="password" formControlName="password">
+            </mat-form-field>
+
+        <button mat-raised-button type="submit"  (click)="submit()">Login</button>
+        <button mat-raised-button type="submit" color="success" (click)="signInWithGoogle()">Gmail</button>
+        <button mat-raised-button type="submit" color="Accent" (click)="signInWithFB()">Facebook</button>
+      </form>
+       <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="" checked="">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                        I agree to the <a href="#something">terms and conditions</a>.
+                      </label>
+                    </div>
+    </mat-card>
+</div>

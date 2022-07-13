@@ -1,0 +1,13 @@
+<mat-toolbar color=#c1c5cd>
+    <span><mat-icon>eco</mat-icon>Presta</span>
+    <div class="spacer"></div>
+
+    <a mat-button *ngIf="!this.authservice.isLoggedIn()" routerLink="about">About Us</a>
+    <a mat-button *ngIf="!this.authservice.isLoggedIn()" routerLink="support">Support</a>
+    <a mat-button *ngIf="!this.authservice.isLoggedIn()" routerLink="contact">Contact</a>
+    <a mat-raised-button color="accent"  *ngIf="this.authservice.isLoggedIn()" routerLink="profile">User Profile</a>
+    <a mat-raised-button color="accent"  *ngIf="!this.authservice.isLoggedIn()"  routerLink="sign">Login</a>
+    <a mat-raised-button color="accent" *ngIf="!this.authservice.isLoggedIn()" routerLink="register">Register</a>
+   <button *ngIf="this.authservice.isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+
+  </mat-toolbar>
