@@ -18,7 +18,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-   private UserDetailsServiceImpl userDetailsService;
+
+   private final UserDetailsServiceImpl userDetailsService;
 
     public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
         this.userDetailsService = userDetailsService;
@@ -30,18 +31,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-        http.formLogin();
-
-        //ne pas utuliser les session coté serveur mais jwt
+        JWTAuthenticationFilter jwtAuthenticationFilter=new JWTAuthenticationFilter(authenticationManagerBean());
+        jwtAuthenticationFilter.setFilterProcessesUrl("/api/login");
+        http.csrf().disable().headers().and().
+                httpBasic().disable();
+        http.cors();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/login","refreshToken/**").permitAll();
-        http.addFilter(new JWTAuthenticationFilter(authenticationManagerBean()));
-        http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/utilisateurs/**").hasAuthority("ADMIN");
-
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/utilisateurs/**").hasAuthority("USER");
+        http.authorizeRequests().antMatchers("/api/login/**","/users/register","/users/refreshToken","/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui/index.html",
+                "/swagger-ui.html",
+                "/webjars/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST,"/users/**").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/users/**").hasAuthority("USER");
         http.authorizeRequests().anyRequest().authenticated();
+        http.addFilter(jwtAuthenticationFilter);
+        http.addFilterBefore(new JWTAuthorizationFilter(),UsernamePasswordAuthenticationFilter.class);
+        //ne pas utuliser les session coté serveur mais jwt
+
+
+
 
 
     }
@@ -50,4 +61,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
 }

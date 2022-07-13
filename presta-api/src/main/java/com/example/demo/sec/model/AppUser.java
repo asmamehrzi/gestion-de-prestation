@@ -1,7 +1,5 @@
 package com.example.demo.sec.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,13 +10,21 @@ import java.util.Collection;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private  String username;
+    private String email;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<AppRole> appRoles =new ArrayList<>();
+
+    public AppUser(Long id, String username, String password, Collection<AppRole> appRoles) {
+        Id = id;
+        this.username = username;
+        this.password = password;
+        this.appRoles = appRoles;
+    }
 }
+

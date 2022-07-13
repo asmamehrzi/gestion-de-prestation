@@ -5,6 +5,7 @@ import com.example.demo.sec.model.AppUser;
 import com.example.demo.sec.repository.AppRoleRepository;
 import com.example.demo.sec.repository.AppUserReository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,20 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AppUser> listUsers() {
+
         return appUserReository.findAll();
     }
+
+    @Override
+    public ResponseEntity<AppUser> getUserById(Long id) {
+        AppUser user = appUserReository.findById(id).get();
+        return ResponseEntity.ok(user);    }
+
+    @Override
+    public String deleteUser(Long Id) {
+        AppUser user = appUserReository.findById(Id).get();
+
+        appUserReository.delete(user);
+        return "Deleted Successfully";    }
+
 }
