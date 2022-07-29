@@ -40,7 +40,7 @@ public class TypeMissionServiceImpl implements TypeMissionService{
     @Override
     public ResponseEntity<TypeMission> updateTypeMission(long id, TypeMission typeMission) {
         TypeMission typeMission1 = typemissionRepository.findById(id).get();
-        typeMission1.setType(typeMission.getType());
+        typeMission1.setTypeMission(typeMission.getTypeMission());
 
         final TypeMission updatedtype = typemissionRepository.save(typeMission1);
         return ResponseEntity.ok(updatedtype);    }

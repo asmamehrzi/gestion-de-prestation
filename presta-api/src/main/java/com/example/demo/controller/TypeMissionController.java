@@ -15,7 +15,7 @@ public class TypeMissionController {
     @Autowired
     private TypeMissionService typeMissionService;
 
-    @GetMapping("/ typeMissions")
+    @GetMapping("/typeMissions")
     public List<TypeMission> getAlltypeMission() {
 
         return this.typeMissionService.listTypeMissions();
@@ -40,7 +40,7 @@ public class TypeMissionController {
     public ResponseEntity<TypeMission> updatetypeMission(@PathVariable(value = "id") Long Id,
                                                                @RequestBody TypeMission TypeMissionDetail) {
         TypeMission typeMission = typeMissionService.getTypeMissionById(Id).getBody();
-        typeMission.setType(TypeMissionDetail.getType());
+        typeMission.setTypeMission(TypeMissionDetail.getTypeMission());
 
 
         final TypeMission updatedTypeMission = typeMissionService.addTypeMission(typeMission);

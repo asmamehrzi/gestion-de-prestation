@@ -40,7 +40,7 @@ public class TypeConsultantController {
     public ResponseEntity<TypeConsultant> updatetypeConsultant(@PathVariable(value = "id") Long Id,
                                                  @RequestBody TypeConsultant typeConsultantDetail) {
         TypeConsultant typeConsultant = typeConsultantService.getTypeConsultantById(Id).getBody();
-        typeConsultant.setTitre(typeConsultantDetail.getTitre());
+        typeConsultant.setTypeConsultant(typeConsultantDetail.getTypeConsultant());
 
 
         final TypeConsultant updatedTypeConsultant = typeConsultantService.addTypeConsultant(typeConsultant);

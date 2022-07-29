@@ -20,6 +20,7 @@ public class Mission {
     public  String adresse;
     public Date datedebut;
     public String description;
+    public String duration;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Consultant> consultants =new ArrayList<>();
     @ManyToOne

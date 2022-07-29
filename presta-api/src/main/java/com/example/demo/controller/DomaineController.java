@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Competance;
 import com.example.demo.model.Domaine;
-import com.example.demo.service.CompetanceService;
 import com.example.demo.service.DomaineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

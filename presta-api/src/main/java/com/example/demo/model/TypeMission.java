@@ -17,7 +17,7 @@ public class TypeMission {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String type;
+    private String typeMission;
     @OneToMany(mappedBy = "typemission")
     private Collection<Mission> missions =new ArrayList<>();
 }

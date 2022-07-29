@@ -41,7 +41,7 @@ public class TypeConsultantServiceImpl  implements TypeConsultantService {
     @Override
     public ResponseEntity<TypeConsultant> updateTypeConsultant(long id, TypeConsultant typeConsultant) {
         TypeConsultant typeConsultant1 = typeConsultantRepository.findById(id).get();
-        typeConsultant1.setTitre(typeConsultant.getTitre());
+        typeConsultant1.setTypeConsultant(typeConsultant.getTypeConsultant());
 
         final TypeConsultant updatedtype = typeConsultantRepository.save(typeConsultant1);
         return ResponseEntity.ok(updatedtype);
