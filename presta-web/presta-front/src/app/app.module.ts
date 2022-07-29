@@ -41,6 +41,9 @@ import { AddProfilComponent } from './add-profil/add-profil.component';
 import { CondidaturesComponent } from './condidature/condidatures/condidatures.component';
 import { AddCondidatureComponent } from './condidature/add-condidature/add-condidature.component';
 import { ProfilListComponent } from './profil-list/profil-list.component';
+//import { NgChartsModule } from 'ng2-charts';
+import {MatTooltipModule} from '@angular/material/tooltip';
+//import { ChartistModule } from 'ng-chartist';
 
 @NgModule({
   declarations: [
@@ -88,7 +91,12 @@ import { ProfilListComponent } from './profil-list/profil-list.component';
     MatSidenavModule,
     MatMenuModule,
     SocialLoginModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule,
+
+
+
+
 
 
   ],

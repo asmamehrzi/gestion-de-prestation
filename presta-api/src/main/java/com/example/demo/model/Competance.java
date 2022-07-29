@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,24 +7,25 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
+
 @Entity
+@Table(name = "competance")
 @Data
-@NoArgsConstructor @AllArgsConstructor
-@Table(name = "mission")
-public class Mission {
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Competance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    public  String adresse;
-    public Date datedebut;
-    public String description;
+    private String nom_competance;
+    private String description;
+    @ManyToOne
+    private Consultant consultant;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Consultant> consultants =new ArrayList<>();
     @ManyToOne
-    private Client client;
-    @ManyToOne
-    private TypeMission typemission;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Competance> competances =new ArrayList<>();
+    private Domaine domaine;
+    @ManyToMany(mappedBy ="competances" ,fetch = FetchType.EAGER)
+    private Collection<Mission> missions =new ArrayList<>();
 }

@@ -5,19 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
-@Data
+@Table(name = "TypeMission")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "profil")
-public class Profil {
+@Data
+public class TypeMission {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String Name;
-    private  String Description;
-    @OneToOne
-    private Consultant consultant;
+    private String type;
+    @OneToMany(mappedBy = "typemission")
+    private Collection<Mission> missions =new ArrayList<>();
 }
-

@@ -25,6 +25,10 @@ public class Consultant {
     private String tel;
     @ManyToMany(mappedBy ="consultants" ,fetch = FetchType.EAGER)
     private Collection<Mission> missions =new ArrayList<>();
-    @OneToOne(mappedBy = "consultant")
-    private Profil profil;
+    @OneToMany(mappedBy = "consultant")
+    private Collection<Competance> competances =new ArrayList<>();
+    @ManyToOne
+    private TypeConsultant typeconsultant;
+    @ManyToMany(mappedBy ="consultants" ,fetch = FetchType.EAGER)
+    private Collection<Competance> competancescoll =new ArrayList<>();
 }

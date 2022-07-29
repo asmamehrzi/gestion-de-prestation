@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardUserComponent implements OnInit {
   title = 'admin-panel-layout';
   sideBarOpen = true;
-  
 
-  
+
+
   constructor() { }
 
   ngOnInit(): void {
