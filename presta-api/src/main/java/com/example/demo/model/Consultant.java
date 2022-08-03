@@ -31,4 +31,6 @@ public class Consultant {
     private TypeConsultant typeconsultant;
     @ManyToMany(mappedBy ="consultants" ,fetch = FetchType.EAGER)
     private Collection<Competance> competancescoll =new ArrayList<>();
+    @OneToMany(mappedBy = "consultant")
+    private Collection<Condidature> condidatures =new ArrayList<>();
 }
